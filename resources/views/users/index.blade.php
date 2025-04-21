@@ -9,6 +9,7 @@
             <tr><th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <th>Profile Image</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,6 +18,8 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td><img src="{{ asset('storage/' . $user->profile_image) }}" alt="Profile Image" style="width: 50px; height: 50px;"></td>
+                    
                     <td>{{ $user->phone }}</td>
                     <td>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>

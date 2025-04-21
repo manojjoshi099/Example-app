@@ -23,7 +23,7 @@
             {{ isset($category) ? 'Edit Category' : 'Add Category' }}
         </div>
         <div class="card-body">
-            <form action="{{ isset($category) ? route('categories.update', $category->id) : route('categories.store') }}" method="POST">
+            <form action="{{ isset($category) ? route('categories.update', $category->id) : route('categories.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if(isset($category))
                     @method('PUT')
@@ -32,6 +32,12 @@
                 <div class="form-group mb-2">
                     <label>Name</label>
                     <input type="text" name="name" class="form-control" required value="{{ $category->name ?? old('name') }}">
+                </div>
+
+                <div>
+                    <label>Image:</label>
+                    <input type="file" id="image" class="form-control"  name="image"   value="{{$category->image ?? old('image')}}"  >
+            
                 </div>
 
                 <div class="form-group mb-2">
@@ -64,6 +70,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Photo</th>
                         <th>Description</th>
                         <th>Price(in $)</th>
                         <th>Actions</th>
@@ -74,6 +81,13 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $cat->name }}</td>
+                            <td>
+                                @if($cat->image)
+                                <img src="{{ asset('storage/' . $cat->image) }}" alt="{{ $cat->name }}" width="50" height="50">
+                            @else
+                                <img src="{{ asset('images/Default.png') }}" alt="Default" width="50" height="50">
+                            @endif
+                            </td>
                             <td>{{ $cat->description }}</td>
                             <td>{{ $cat->price }}</td>
                             <td>

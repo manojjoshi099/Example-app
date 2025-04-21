@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -21,10 +23,20 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
+            'image' => 'nullable',
         ]);
 
-        Category::create($request->only('name', 'description', 'price'));
+        if($request ->file('image')){
+            $path=Storage::putFile('images', $request->file('image'));
+        }
 
+        $data = $request->only('name', 'description', 'price');
+
+        if ($request->file('image')) {
+            $data['image'] = $request->file('image')->store('images', 'public'); // Save image to public disk
+        }
+        
+        Category::create($data);
         return redirect()->route('categories.index')->with('success', 'Category added!');
     }
 
@@ -42,10 +54,16 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
+
         ]);
 
-        $category->update($request->only('name', 'description', 'price'));
+        $data = $request->only('name', 'description', 'price');
 
+            if ($request->file('image')) {
+                $data['image'] = $request->file('image')->store('images', 'public');
+            }
+
+        $category->update($data);
         return redirect()->route('categories.index')->with('success', 'Category updated!');
     }
 
