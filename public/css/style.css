@@ -1,0 +1,689 @@
+/* Global Styles */
+:root {
+    --primary-color: #f01540;
+}
+
+.primary {
+    color: var(--primary-color);
+}
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #222;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+.btn-custom {
+    background-color: #f01540;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    transition: 0.3s;
+}
+.btn-custom:hover {
+    background-color: #ca1036;
+}
+
+.discount {
+    position: absolute;
+    bottom: 100px;
+    right: 500px;
+    background: yellow;
+    color: black;
+    padding: 15px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 3;
+}
+
+.hero-image .red-bg {
+    position: absolute;
+    width: 100%;
+    height: 300px; /* adjust as needed */
+    background-color: #f31559;
+    border-top-left-radius: 300px;
+    border-bottom-left-radius: 300px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -2;
+}
+.rating {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f01540;
+}
+.navbar-nav .nav-link {
+    margin-right: 1rem;
+    font-weight: 500;
+}
+.navbar-toggler {
+    border: none;
+}
+
+/* ---------- Red Shapes (Common styles) ---------- */
+.red-shape {
+    position: absolute;
+    background-color: #f01540;
+    opacity: 0.15;
+    z-index: 0;
+    border-radius: 50%;
+}
+/* Example: a small circle */
+.red-circle {
+    width: 150px;
+    height: 150px;
+}
+/* Example: an abstract shape */
+.red-blob {
+    width: 250px;
+    height: 250px;
+    border-radius: 40% 60% 70% 30% / 30% 40% 60% 70%;
+}
+
+/* HERO SECTION */
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    background: url("https://via.placeholder.com/1920x1080?text=Hero+Background")
+        center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(122, 94, 16, 0.5);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+.hero-title {
+    font-size: 3rem;
+    color: #f01540;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.hero-img-wrapper {
+    position: relative;
+    display: inline-block;
+}
+.hero-img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+.menu-item {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.deal-card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.deal-card:hover {
+    transform: translateY(-5px);
+}
+
+.deal-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Red Shape behind Hero Image */
+.hero-img-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 200px;
+    height: 200px;
+    background-color: #f01540;
+    opacity: 0.2;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* PERFECT INGREDIENT SECTION */
+.perfect-ingredient {
+    padding: 4rem 0;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.perfect-ingredient h2.title {
+    color: #f01540;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.ingredient-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+.ingredient-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: url("https://via.placeholder.com/150?text=BG") center/cover
+        no-repeat;
+    border-radius: 50%;
+    z-index: -1;
+}
+.ingredient-circle-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+/* Extra red shape in Perfect Ingredient section */
+.perfect-ingredient .red-shape {
+    top: -50px;
+    left: -50px;
+}
+
+/* CHOOSE CATEGORY SECTION */
+.choose-category {
+    padding: 4rem 0;
+    background: url("https://via.placeholder.com/1920x600?text=Category+BG")
+        center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.choose-category h2.title {
+    color: #f01540;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.category-box {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 2;
+}
+.category-box:hover {
+    transform: translateY(-5px);
+}
+.category-box img {
+    width: 100px;
+    height: 100px;
+    border-radius: 80%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+/* Add a red blob behind each category box */
+.category-box::before {
+    content: "";
+    position: absolute;
+    bottom: 45px;
+    right: 90px;
+    width: 60px;
+    height: 130px;
+    background-color: #ff0033;
+    border-radius: 10px; /* just slightly rounded */
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* HOW WE WORK SECTION */
+.how-we-work {
+    padding: 4rem 0;
+    background: url("https://via.placeholder.com/1920x600?text=Work+BG")
+        center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.how-we-work h2.title {
+    color: #f01540;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+}
+.work-step {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 2;
+}
+.work-step:hover {
+    transform: translateY(-5px);
+}
+.work-step img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+.work-step h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+/* Add a red circle behind each work step */
+.work-step::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 60px;
+    height: 60px;
+    background-color: #f01540;
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* FAST FOOD MENU SECTION */
+.fast-food-menu {
+    padding: 4rem 0;
+    background: url("https://via.placeholder.com/1920x600?text=Menu+BG")
+        center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.fast-food-menu h2.title {
+    color: #f01540;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+}
+.menu-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    transition: 0.3s;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+.menu-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+.menu-item h5 {
+    color: #f01540;
+    margin-bottom: 0.5rem;
+}
+/* Add a red shape behind menu items */
+.menu-item::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 120px;
+    height: 120px;
+    background-color: #f01540;
+    border-radius: 50%;
+    opacity: 0.08;
+    z-index: -1;
+}
+
+/* COMMON SECTION LAYOUT */
+.section {
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+.section h2.title {
+    color: #f01540;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.section h2.title1 {
+    color: #f01540;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+.section .section-text {
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+}
+.section-img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+/* BEST SELLER DEALS SECTION */
+.best-seller {
+    padding: 4rem 0;
+    background: url("https://via.placeholder.com/1920x600?text=Deals+BG")
+        center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.best-seller h2.title {
+    color: #f01540;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+}
+.deal-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+.deal-card:hover {
+    transform: translateY(-5px);
+}
+.deal-card img {
+    width: 100%;
+    object-fit: cover;
+}
+.deal-card .card-body {
+    padding: 1rem;
+}
+.deal-card h5 {
+    color: #f01540;
+    margin-bottom: 0.5rem;
+}
+.deal-card span {
+    font-weight: bold;
+    color: #ca1036;
+}
+.menu .card img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* FOOTER */
+footer {
+    background-color: rgb(230, 98, 21);
+    color: #fff;
+    padding: 1rem 0;
+}
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.footer-links a {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    transition: 0.3s;
+}
+.footer-links a:hover {
+    opacity: 0.8;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.section-img {
+    max-height: 350px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* contact form */
+.contact-us {
+    background-color: #fff5f1;
+}
+
+.contact-form input,
+.contact-form textarea {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    top: auto;
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
+}
+
+.btn-custom {
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #cc0000;
+}
+
+/* Offer Section  */
+.offer-hero {
+    background: linear-gradient(to right, #fc0303, #c48004);
+    color: white;
+    padding: 100px 0;
+}
+
+.offer-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.offer-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.offer-box:hover {
+    transform: translateY(-5px);
+}
+
+.offer-box img {
+    max-width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.offer-box h3 {
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+
+.offer-box p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff0033;
+}
+
+/* Reservation Section */
+body {
+    font-family: "Segoe UI", sans-serif;
+}
+
+.reservation-form input,
+.reservation-form textarea {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.reservation-section {
+    background-color: #fffaf0;
+}
+
+.contact-info-section h5 {
+    color: #ff0033;
+    font-weight: 600;
+}
+
+/* Menu section */
+.menu-item,
+.deal-card,
+.offer-box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s ease;
+    height: 100%;
+}
+
+.menu-item img,
+.deal-card img,
+.offer-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.price-original {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.price-discounted {
+    color: #e63946;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Login and register */
+body {
+    font-family: sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #ff0033;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #cc0029;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+}
