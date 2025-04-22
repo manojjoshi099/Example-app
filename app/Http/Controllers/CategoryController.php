@@ -54,14 +54,25 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
+            'image' => 'nullable', // Validate image  
 
         ]);
 
         $data = $request->only('name', 'description', 'price');
 
-            if ($request->file('image')) {
-                $data['image'] = $request->file('image')->store('images', 'public');
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($category->image && Storage::disk('public')->exists($category->image)) {
+                Storage::disk('public')->delete($category->image);
             }
+    
+            // Store new image
+            $data['image'] = $request->file('image')->store('images', 'public');
+        }    
+
+            // if ($request->file('image')) {
+            //     $data['image'] = $request->file('image')->store('images', 'public');
+            // }
 
         $category->update($data);
         return redirect()->route('categories.index')->with('success', 'Category updated!');

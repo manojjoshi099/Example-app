@@ -37,7 +37,11 @@
                 <div>
                     <label>Image:</label>
                     <input type="file" id="image" class="form-control"  name="image"   value="{{$category->image ?? old('image')}}"  >
-            
+                    @if(isset($category) && $category->image)
+                        <p class="mt-2">Current Image:</p>
+                        <img src="{{ asset('storage/' . $category->image) }}" alt="Current Image" width="80">
+                    @endif
+                    
                 </div>
 
                 <div class="form-group mb-2">
