@@ -50,7 +50,7 @@
     <div class="sidebar">
         <h4 class="text-center py-3 border-bottom">Side Bar</h4>
         <a href="{{url('admin/index') }}"><i class="fas fa-tags"></i> Categories</a>
-        <a href="{{ route('menu-items.index') }}"><i class="fas fa-utensils"></i> Menu Items</a>
+        <a href="{{url('admin/menu-items.index') }}"><i class="fas fa-utensils"></i> Menu Items</a>
         <a href="#"><i class="fas fa-shopping-cart"></i> Orders</a>
         <a href="#"><i class="fas fa-users"></i> Users</a>
         <a href="#"><i class="fas fa-cog"></i> Settings</a>
