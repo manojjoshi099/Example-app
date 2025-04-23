@@ -18,9 +18,21 @@
             <input type="text" name="phone" class="form-control" required placeholder="Enter phone number">
         </div>
         <div class="mb-3">
+            <label for="phone" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" required placeholder="Enter password">
+        </div>
+        <div class="mb-3">
             <label for="password" class="form-label">Profile Image</label>
-            <input type="file" name="profile_image" class="form-control" entype="multipart/form-data" required placeholder="Upload profile image">
-        </div>       
+            <input type="file" name="profile_image" class="form-control" entype="multipart/form-data"  placeholder="Upload profile image">
+        </div>  
+        <div class="mb-3">
+            <label for="role" class="form-label">User Role:</label>
+            <select name="role" class="form-select" required>
+                <option value="" disabled selected>Select user role</option>
+                <option value="admin">admin</option>
+                <option value="user">user</option>
+            </select>
+        </div>     
         <button type="submit" class="btn btn-success">Create</button>
         <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancel</a>
     </form>

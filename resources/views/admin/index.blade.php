@@ -31,3 +31,5 @@
     </table>
 </div>
 @endsection --}}
+
+<h1>Admin Dashboard</h1>

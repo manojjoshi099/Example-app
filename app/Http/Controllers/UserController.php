@@ -28,6 +28,7 @@ public function store(Request $request)
         'name' => 'required',
         'email' => 'required|email|unique:users',
         'phone' => 'required',
+        'password' => 'required|min:6',
     ]);
     User::create($request->all());
     return redirect()->route('users.index')->with('success', 'User added successfully');
@@ -44,6 +45,8 @@ public function update(Request $request, User $user)
         'name' => 'required',
         'email' => 'required|email|unique:users,email,' . $user->id,
         'phone' => 'required',
+        'password' => Hash::make('password123'),
+        'role'=> 'required|in:admin,user',
     ]);
     $user->update($request->all());
     return redirect()->route('users.index')->with('success', 'User updated');
