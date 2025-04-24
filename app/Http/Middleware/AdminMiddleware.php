@@ -7,15 +7,12 @@ use Illuminate\Http\Request;
 
 class AdminMiddleware
 {
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        if (session()->has('admin_logged_in')) {
-            // Optionally, you might want to also verify the user's role
-            // by retrieving them from the database based on some stored identifier in the session
-            // and checking their 'role' attribute.
-            return $next($request);
+        if (!session()->has('admin_id')) {
+            return redirect()->route('admin.login');
         }
 
-        return redirect()->route('admin.login'); // Or abort(403) if you prefer
+        return $next($request);
     }
 }

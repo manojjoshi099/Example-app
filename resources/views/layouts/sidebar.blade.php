@@ -6,10 +6,8 @@
     <title>Side Bar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Optional FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
@@ -23,9 +21,25 @@
             background-color: #343a40;
             color: white;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column; /* Stack sidebar items vertically */
         }
 
-        .sidebar a {
+        .sidebar-header {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #495057;
+        }
+
+        .sidebar-header h4 {
+            margin-bottom: 0;
+        }
+
+        .sidebar-nav {
+            flex-grow: 1; /* Allow navigation to take up remaining vertical space */
+        }
+
+        .sidebar-nav a {
             color: white;
             text-decoration: none;
             display: block;
@@ -33,8 +47,24 @@
             border-bottom: 1px solid #495057;
         }
 
-        .sidebar a:hover {
+        .sidebar-nav a:hover {
             background-color: #495057;
+        }
+
+        .sidebar-footer {
+            padding: 15px;
+            border-top: 1px solid #495057;
+            text-align: center;
+        }
+
+        .sidebar-footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .sidebar-footer a:hover {
+            color: #adb5bd;
         }
 
         .content {
@@ -46,20 +76,31 @@
 
 <body>
 
-    <!-- Sidebar -->
     <div class="sidebar">
-        <h4 class="text-center py-3 border-bottom">Side Bar</h4>
-        <a href="{{url('admin/index') }}"><i class="fas fa-tags"></i> Categories</a>
-        <a href="{{url('admin/menu-items.index') }}"><i class="fas fa-utensils"></i> Menu Items</a>
-        <a href="#"><i class="fas fa-shopping-cart"></i> Orders</a>
-        <a href="#"><i class="fas fa-users"></i> Users</a>
-        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+        <div class="sidebar-header">
+            <h4 class="text-center">Side Bar</h4>
+        </div>
+        <div class="sidebar-nav">
+            <a href="{{ route('admin.index') }}"><i class="fas fa-tags"></i> Categories</a>
+            <a href="{{ route('menu-items.index')}}"><i class="fas fa-utensils"></i> Menu Items</a>
+            <a href="#"><i class="fas fa-shopping-cart"></i> Orders</a>
+            <a href="{{route('users.index')}}"><i class="fas fa-users"></i> Users</a>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="{{ route('admin.profile') }}">
+                @auth('web') {{ Auth::user()->name }} @else Profile    @endauth
+                <i class="fas fa-user"></i><br>
+            </a>
+            <a href="{{ route('admin.logout') }}">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
     </div>
 
     <div class="content">
         @yield('content')
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

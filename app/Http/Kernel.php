@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http;
+// namespace App\Http;
+namespace App\Http\Middleware;
+use App\Http\Middleware\AdminMiddleware;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use App\Http\Middleware\Authenticate;
+use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 
 
 class Kernel extends HttpKernel
@@ -34,12 +37,12 @@ class Kernel extends HttpKernel
         ],
     ];
 
-    protected $routeMiddleware = [
-        'auth' => Middleware\Authenticate::class, // Uncomment this line
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        // ... other middleware ...
-        'admin' => \App\Http\Middleware\AdminMiddleware::class,
-        'admin.auth' => \App\Http\Middleware\AdminAuth::class,
-        // ...
-    ];
+    // protected $routeMiddleware = [
+    //      // Uncomment this line
+    //     'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    //     // ... other middleware ...
+    //     'admin' => \App\Http\Middleware\AdminMiddleware::class,
+    //     'admin.auth' => \App\Http\Middleware\AdminMiddleware::class,
+    //     // ...
+    // ];
 }
