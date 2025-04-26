@@ -81,10 +81,10 @@
             <h4 class="text-center">Side Bar</h4>
         </div>
         <div class="sidebar-nav">
-            <a href="{{ route('admin.index') }}"><i class="fas fa-tags"></i> Categories</a>
-            <a href="{{ route('menu-items.index')}}"><i class="fas fa-utensils"></i> Menu Items</a>
+            <a href="{{ route('categories.index') }}"><i class="fas fa-tags"></i> Categories</a>
+            <a href="{{ route('admin.menu_items.index') }}"><i class="fas fa-utensils"></i> Menu Items</a>
             <a href="#"><i class="fas fa-shopping-cart"></i> Orders</a>
-            <a href="{{route('users.index')}}"><i class="fas fa-users"></i> Users</a>
+            <a href="/admin/users"><i class="fas fa-users"></i> Users</a>
             <a href="#"><i class="fas fa-cog"></i> Settings</a>
         </div>
         <div class="sidebar-footer">

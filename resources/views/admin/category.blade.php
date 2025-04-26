@@ -24,7 +24,7 @@
             </div>
             <div class="card-body">
                 <form
-                    action="{{ isset($category) ? route('categories.update', $category->id) : route('categories.store') }}"
+                    action="{{ isset($category) ? route('admin.categories.update', $category->id) : route('admin.categories.store') }}"
                     method="POST" enctype="multipart/form-data">
                     @csrf
                     @if (isset($category))
@@ -63,7 +63,7 @@
                     </button>
 
                     @if (isset($category))
-                        <a href="{{ route('categories.index') }}" class="btn btn-secondary mt-2 ms-2">Cancel</a>
+                        <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary mt-2 ms-2">Cancel</a>
                     @endif
                 </form>
             </div>
@@ -101,9 +101,9 @@
                                 <td>{{ $cat->description }}</td>
                                 <td>{{ $cat->price }}</td>
                                 <td>
-                                    <a href="{{ route('categories.edit', $cat->id) }}" class="btn btn-sm btn-primary"><i
+                                    <a href="{{ route('admin.categories.edit', $cat->id) }}" class="btn btn-sm btn-primary"><i
                                             class="fas fa-edit"></i> Edit</a>
-                                    <form action="{{ route('categories.destroy', $cat->id) }}" method="POST"
+                                    <form action="{{ route('admin.categories.destroy', $cat->id) }}" method="POST"
                                         style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')

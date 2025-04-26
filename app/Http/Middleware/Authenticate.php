@@ -97,7 +97,7 @@ class Authenticate
     protected function redirectTo(Request $request)
     {
         if (! $request->expectsJson()) {
-            return route('login'); // Adjust 'login' to your login route name
+            return route('admin.login'); // Adjust 'login' to your login route name
         }
     }
 

@@ -37,7 +37,8 @@ class CategoryController extends Controller
         }
         
         Category::create($data);
-        return redirect()->route('categories.index')->with('success', 'Category added!');
+        return redirect()->route('admin.categories.index')->with('success', 'Category added!');
+
     }
 
     // Edit existing category (load data into same page)
@@ -75,14 +76,14 @@ class CategoryController extends Controller
             // }
 
         $category->update($data);
-        return redirect()->route('categories.index')->with('success', 'Category updated!');
+        return redirect()->route('admin.categories.index')->with('success', 'Category updated!');
     }
 
     // Delete category
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index')->with('success', 'Category deleted!');
+        return redirect()->route('admin.categories.index')->with('success', 'Category deleted!');
     }
 
     public function show(Category $category)

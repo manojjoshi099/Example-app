@@ -16,10 +16,10 @@
                         <a href="#" class="btn btn-custom">Order Now</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ms-auto">
+                {{-- <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ url('login') }}">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('register') }}">Register</a></li>
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </nav>

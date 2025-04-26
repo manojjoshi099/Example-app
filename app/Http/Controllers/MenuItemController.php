@@ -36,4 +36,9 @@ class MenuItemController extends Controller
         $menuItem->delete();
         return redirect()->route('menu-items.index')->with('success', 'Menu item deleted!');
     }
+
+    public function show(MenuItem $menuItem)
+    {
+        return view('admin.menu_items', ['menuItem' => $menuItem]);
+    }
 }

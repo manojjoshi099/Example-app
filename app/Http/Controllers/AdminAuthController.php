@@ -17,50 +17,7 @@ class AdminAuthController extends Controller
         return view('admin.login');
 
     }
-
-    // public function login(Request $request)
-    // {
-    //     $request->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required'
-    //     ]);
-
-    //     $admin = Admin::where('email', $request->email)->first();
-
-    //     if ($admin && Hash::check($request->password, $admin->password)) {
-    //         session([
-    //             'admin_logged_in' => true,
-    //             'admin_id' => $admin->id]);
-    //         return redirect('/admin/index');
-    //     }
-
-    //     return back()->with('error', 'Invalid credentials');
-    // }
-
-    // public function logout()
-    // {
-    //     session()->forget('admin_id');
-    //     return redirect('/admin/login');
-    // }
-
-    // public function login(Request $request)
-    // {
-    //     $credentials = $request->only('email', 'password');
-
-    //     if (Auth::attempt($credentials)) {
-    //         if (Auth::user()->role === 'admin') {
-    //             $request->session()->put('admin_logged_in', true); // You might still want this session flag
-    //             return redirect()->route('admin.category'); // Redirect to the admin dashboard or categories index
-    //         return "Loged in successfully"; // For testing purposes, you can change this to a redirect later
-    //         } else {
-    //             Auth::logout(); // Log them out if they are not an admin
-    //             return redirect()->route('admin.login')->withErrors(['email' => 'You do not have admin privileges.']);
-    //         }
-    //     }
-
-    //     return redirect()->route('admin.login')->withErrors(['email' => 'Invalid credentials']);
-    // }
-
+    
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -68,7 +25,7 @@ class AdminAuthController extends Controller
         if (Auth::attempt($credentials)) {
             if (Auth::user()->role === 'admin') {
                 $request->session()->put('admin_logged_in', true);
-                return redirect()->route('admin.index'); // Redirect to the existing admin index route
+                return redirect()->route('admin.categories.index'); // Redirect to the existing admin index route
             } else {
                 Auth::logout();
                 return redirect()->route('admin.login')->withErrors(['email' => 'You do not have admin privileges.']);
@@ -77,7 +34,6 @@ class AdminAuthController extends Controller
     
         return redirect()->route('admin.login')->withErrors(['email' => 'Invalid credentials']);
     }
-    
     public function logout(Request $request)
     {
         Auth::logout();
