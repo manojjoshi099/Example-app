@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
-<body>
+<body class="mt-5">
 
     <!-- Include header here if modular -->
     @include('items.header')

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Side Bar</title>
+    <title>Admin Panel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -81,7 +81,7 @@
             <h4 class="text-center">Side Bar</h4>
         </div>
         <div class="sidebar-nav">
-            <a href="{{ route('categories.index') }}"><i class="fas fa-tags"></i> Categories</a>
+            <a href="{{ route('admin.categories.index') }}"><i class="fas fa-tags"></i> Categories</a>
             <a href="{{ route('admin.menu_items.index') }}"><i class="fas fa-utensils"></i> Menu Items</a>
             <a href="#"><i class="fas fa-shopping-cart"></i> Orders</a>
             <a href="/admin/users"><i class="fas fa-users"></i> Users</a>

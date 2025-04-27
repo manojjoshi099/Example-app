@@ -10,7 +10,7 @@
     @include('items.header')
 </head>
 
-<body>
+<body class="mt-5">
     <!-- FAST FOOD MENU -->
     <section class="py-5">
         <div class="container">

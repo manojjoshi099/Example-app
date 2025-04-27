@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @include('items.header');
 </head>
-<body>
+<body class="mt-5">
     <!-- HERO SECTION -->
     <section class="reservation-hero text-center py-5">
         <div class="container">

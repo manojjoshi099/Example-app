@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-1 fixed-top">
         <div class="container">
             <a class="navbar-brand" href="home">🍕 Pizza Hut</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
