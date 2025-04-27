@@ -15,8 +15,27 @@ class MenuItemController extends Controller
 
     public function store(Request $request)
     {
-        MenuItem::create($request->all());
-        return redirect()->route('menu-items.index')->with('success', 'Menu item added!');
+        // Validate data (optional but recommended)
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'nullable',
+        ]);
+
+        $menuItem = new MenuItem();
+        $menuItem->name = $request->name;
+        $menuItem->description = $request->description;
+        $menuItem->price = $request->price;
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('menu-items', 'public');
+            $menuItem->image = $path;
+        }
+
+        $menuItem->save();
+
+        return redirect()->route('admin.menu_items.index')->with('success', 'Menu item added!');
     }
 
     public function edit(MenuItem $menuItem)
@@ -27,14 +46,32 @@ class MenuItemController extends Controller
 
     public function update(Request $request, MenuItem $menuItem)
     {
-        $menuItem->update($request->all());
-        return redirect()->route('menu-items.index')->with('success', 'Menu item updated!');
+        // Validate data
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $menuItem->name = $request->name;
+        $menuItem->description = $request->description;
+        $menuItem->price = $request->price;
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('menu-items', 'public');
+            $menuItem->image = $path;
+        }
+
+        $menuItem->save();
+
+        return redirect()->route('admin.menu_items.index')->with('success', 'Menu item updated!');
     }
 
     public function destroy(MenuItem $menuItem)
     {
         $menuItem->delete();
-        return redirect()->route('menu-items.index')->with('success', 'Menu item deleted!');
+        return redirect()->route('admin.menu_items.index')->with('success', 'Menu item deleted!');
     }
 
     public function show(MenuItem $menuItem)

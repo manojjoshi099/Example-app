@@ -30,7 +30,6 @@
                     @if (isset($category))
                         @method('PUT')
                     @endif
-
                     <div class="form-group mb-2">
                         <label>Name</label>
                         <input type="text" name="name" class="form-control" required

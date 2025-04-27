@@ -17,12 +17,22 @@
         }
 
         .sidebar {
-            width: 250px;
+            /* width: 250px;
             background-color: #343a40;
             color: white;
             flex-shrink: 0;
             display: flex;
-            flex-direction: column; /* Stack sidebar items vertically */
+            flex-direction: column; Stack sidebar items vertically */
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh; /* full screen height */
+            width: 220px; /* adjust width if needed */
+            background-color: #343a40; /* dark background */
+            color: #fff;
+            overflow-y: auto; /* scroll if content is too much */
+            padding-top: 20px;
+            z-index: 1000;
         }
 
         .sidebar-header {
@@ -76,7 +86,7 @@
 
 <body>
 
-    <div class="sidebar">
+    <div class="sidebar  bg-dark text-white">
         <div class="sidebar-header">
             <h4 class="text-center">Side Bar</h4>
         </div>
@@ -84,8 +94,10 @@
             <a href="{{ route('admin.categories.index') }}"><i class="fas fa-tags"></i> Categories</a>
             <a href="{{ route('admin.menu_items.index') }}"><i class="fas fa-utensils"></i> Menu Items</a>
             <a href="#"><i class="fas fa-shopping-cart"></i> Orders</a>
-            <a href="/admin/users"><i class="fas fa-users"></i> Users</a>
+            <a href="/users"><i class="fas fa-users"></i> Users</a>
             <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            {{-- <a href="{{route('admin/reservation')}}"><i class="fas fa-book-open"></i> Reservations</a> --}}
+            <a href="admin/reservation"><i class="fas fa-book-open"></i> Reservations</a>
         </div>
         <div class="sidebar-footer">
             <a href="{{ route('admin.profile') }}">
@@ -98,7 +110,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content "style="margin-left: 220px; padding: 20px;">
         @yield('content')
     </div>
 
