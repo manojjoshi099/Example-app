@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminAuthController extends Controller
 {
-
     public function showLoginForm()
     {
         return view('admin.login');
@@ -41,7 +40,5 @@ class AdminAuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('admin.login');
-    }
-
-    
+    }    
 }
