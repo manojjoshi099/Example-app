@@ -8,6 +8,7 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
+        
         {{-- Add Button --}}
         @if (!isset($editItem))
             <div class="mb-3 text-end">
@@ -35,6 +36,16 @@
                         <label>Item Name</label>
                         <input type="text" name="name" class="form-control" required
                             value="{{ $editItem->name ?? old('name') }}">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Type</label>
+                        <select name="type" class="form-control" required>
+                            <option value="Pizza" {{ (isset($editItem) && $editItem->type == 'Pizza') ? 'selected' : '' }}>Pizza</option>
+                            <option value="Burger" {{ (isset($editItem) && $editItem->type == 'Burger') ? 'selected' : '' }}>Burger</option>
+                            <option value="Drink" {{ (isset($editItem) && $editItem->type == 'Drink') ? 'selected' : '' }}>Drink</option>
+                            <option value="Sandwich" {{ (isset($editItem) && $editItem->type == 'Sandwich') ? 'selected' : '' }}>Sandwich</option>
+                            <!-- Add more types as needed -->
+                        </select>
                     </div>
 
                     <div class="form-group mb-2">
@@ -77,6 +88,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Type</th>
                             <th>Description</th>
                             <th>Image</th>
                             <th>Price (in $)</th>
@@ -88,6 +100,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $item->name }}</td>
+                                <td>{{$item->type}}</td>
                                 <td>{{ $item->description }}</td>
                                 <td>
                                     @if ($item->image)
@@ -157,6 +170,17 @@ Starters --}}
                     </div>
 
                     <div class="form-group mb-2">
+                        <label>Type</label>
+                        <select name="type" class="form-control" required>
+                            <option value="Pizza" {{ (isset($editItem) && $editItem->type == 'Pizza') ? 'selected' : '' }}>Pizza</option>
+                            <option value="Burger" {{ (isset($editItem) && $editItem->type == 'Burger') ? 'selected' : '' }}>Burger</option>
+                            <option value="Drink" {{ (isset($editItem) && $editItem->type == 'Drink') ? 'selected' : '' }}>Drink</option>
+                            <option value="Sandwich" {{ (isset($editItem) && $editItem->type == 'Sandwich') ? 'selected' : '' }}>Sandwich</option>
+                            <!-- Add more types as needed -->
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-2">
                         <label>Description</label>
                         <textarea name="description" class="form-control">{{ $editItem->description ?? old('description') }}</textarea>
                     </div>
@@ -196,6 +220,7 @@ Starters --}}
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Type</th>
                             <th>Description</th>
                             <th>Image</th>
                             <th>Price (in $)</th>
@@ -207,6 +232,7 @@ Starters --}}
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $item->name }}</td>
+                                <td>{{$item->type}}</td>
                                 <td>{{ $item->description }}</td>
                                 <td>
                                     @if ($item->image)
@@ -271,6 +297,17 @@ Starters --}}
                 </div>
 
                 <div class="form-group mb-2">
+                    <label>Type</label>
+                    <select name="type" class="form-control" required>
+                        <option value="Pizza" {{ (isset($editItem) && $editItem->type == 'Pizza') ? 'selected' : '' }}>Pizza</option>
+                        <option value="Burger" {{ (isset($editItem) && $editItem->type == 'Burger') ? 'selected' : '' }}>Burger</option>
+                        <option value="Drink" {{ (isset($editItem) && $editItem->type == 'Drink') ? 'selected' : '' }}>Drink</option>
+                        <option value="Sandwich" {{ (isset($editItem) && $editItem->type == 'Sandwich') ? 'selected' : '' }}>Sandwich</option>
+                        <!-- Add more types as needed -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-2">
                     <label>Description</label>
                     <textarea name="description" class="form-control">{{ $editItem->description ?? old('description') }}</textarea>
                 </div>
@@ -310,6 +347,7 @@ Starters --}}
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Type</th>
                         <th>Description</th>
                         <th>Image</th>
                         <th>Price (in $)</th>
@@ -321,6 +359,7 @@ Starters --}}
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>{{$item->type}}</td>
                             <td>{{ $item->description }}</td>
                             <td>
                                 @if ($item->image)
@@ -424,6 +463,7 @@ Starters --}}
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Type</th>
                         <th>Description</th>
                         <th>Image</th>
                         <th>Price (in $)</th>
@@ -435,6 +475,7 @@ Starters --}}
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>{{$item->type}}</td>
                             <td>{{ $item->description }}</td>
                             <td>
                                 @if ($item->image)
@@ -498,6 +539,17 @@ Starters --}}
                 </div>
 
                 <div class="form-group mb-2">
+                    <label>Type</label>
+                    <select name="type" class="form-control" required>
+                        <option value="Pizza" {{ (isset($editItem) && $editItem->type == 'Pizza') ? 'selected' : '' }}>Pizza</option>
+                        <option value="Burger" {{ (isset($editItem) && $editItem->type == 'Burger') ? 'selected' : '' }}>Burger</option>
+                        <option value="Drink" {{ (isset($editItem) && $editItem->type == 'Drink') ? 'selected' : '' }}>Drink</option>
+                        <option value="Sandwich" {{ (isset($editItem) && $editItem->type == 'Sandwich') ? 'selected' : '' }}>Sandwich</option>
+                        <!-- Add more types as needed -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-2">
                     <label>Description</label>
                     <textarea name="description" class="form-control">{{ $editItem->description ?? old('description') }}</textarea>
                 </div>
@@ -536,6 +588,7 @@ Starters --}}
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Type</th>
                         <th>Description</th>
                         <th>Image</th>
                         <th>Price (in $)</th>
@@ -547,6 +600,7 @@ Starters --}}
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>{{$item->type}}</td>
                             <td>{{ $item->description }}</td>
                             <td>
                                 @if ($item->image)
@@ -610,6 +664,17 @@ Starters --}}
                 </div>
 
                 <div class="form-group mb-2">
+                    <label>Type</label>
+                    <select name="type" class="form-control" required>
+                        <option value="Pizza" {{ (isset($editItem) && $editItem->type == 'Pizza') ? 'selected' : '' }}>Pizza</option>
+                        <option value="Burger" {{ (isset($editItem) && $editItem->type == 'Burger') ? 'selected' : '' }}>Burger</option>
+                        <option value="Drink" {{ (isset($editItem) && $editItem->type == 'Drink') ? 'selected' : '' }}>Drink</option>
+                        <option value="Sandwich" {{ (isset($editItem) && $editItem->type == 'Sandwich') ? 'selected' : '' }}>Sandwich</option>
+                        <!-- Add more types as needed -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-2">
                     <label>Description</label>
                     <textarea name="description" class="form-control">{{ $editItem->description ?? old('description') }}</textarea>
                 </div>
@@ -648,6 +713,7 @@ Starters --}}
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Type</th>
                         <th>Description</th>
                         <th>Image</th>
                         <th>Price (in $)</th>
@@ -659,6 +725,7 @@ Starters --}}
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>{{$item->type}}</td>
                             <td>{{ $item->description }}</td>
                             <td>
                                 @if ($item->image)
@@ -723,6 +790,17 @@ Starters --}}
                 </div>
 
                 <div class="form-group mb-2">
+                    <label>Type</label>
+                    <select name="type" class="form-control" required>
+                        <option value="Pizza" {{ (isset($editItem) && $editItem->type == 'Pizza') ? 'selected' : '' }}>Pizza</option>
+                        <option value="Burger" {{ (isset($editItem) && $editItem->type == 'Burger') ? 'selected' : '' }}>Burger</option>
+                        <option value="Drink" {{ (isset($editItem) && $editItem->type == 'Drink') ? 'selected' : '' }}>Drink</option>
+                        <option value="Sandwich" {{ (isset($editItem) && $editItem->type == 'Sandwich') ? 'selected' : '' }}>Sandwich</option>
+                        <!-- Add more types as needed -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-2">
                     <label>Description</label>
                     <textarea name="description" class="form-control">{{ $editItem->description ?? old('description') }}</textarea>
                 </div>
@@ -762,6 +840,7 @@ Starters --}}
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Type</th>
                         <th>Description</th>
                         <th>Image</th>
                         <th>Price (in $)</th>
@@ -773,6 +852,7 @@ Starters --}}
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->name }}</td>
+                            <td>{{$item->type}}</td>
                             <td>{{ $item->description }}</td>
                             <td>
                                 @if ($item->image)

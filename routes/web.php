@@ -182,6 +182,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Route::get('/reservation',[ReservationController::class, 'index'])->name('reservation.index');
 
+
+    // Route::get('/reservation',[ReservationController::class,'index'])->name('reservation.index');
+
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');

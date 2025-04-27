@@ -9,9 +9,32 @@ class MenuItemController extends Controller
 {
     public function index()
     {
-        $menuItems = MenuItem::all();
-        return view('admin.menu_items', compact('menuItems'));
-    }
+    //     // $menuItems = MenuItem::all();
+    //     $pizzas = MenuItem::where('type', 'Pizza')->get();
+    //     $burgers = MenuItem::where('type', 'Burger')->get();
+    //     $drinks = MenuItem::where('type', 'Drink')->get();
+    //     $sandwiches = MenuItem::where('type', 'Sandwich')->get();
+
+    // return view('admin.menu_items', compact('pizzas','burgers', 'drinks', 'sandwiches'));
+    //     // return view('admin.menu_items', compact('menuItems'));
+    $menuItems = MenuItem::all(); // Fetch all items
+    $pizzas = MenuItem::where('type', 'Pizza')->get();
+    $burgers = MenuItem::where('type', 'Burger')->get();
+    $drinks = MenuItem::where('type', 'Drink')->get();
+    $sandwiches = MenuItem::where('type', 'Sandwich')->get();
+    $starters = MenuItem::where('type', 'Starter')->get(); // Add if needed
+    $mainCourses = MenuItem::where('type', 'Main Course')->get(); // Add if needed
+
+    return view('admin.menu_items', compact(
+        'menuItems', // Pass $menuItems to Blade
+        'pizzas',
+        'burgers',
+        'drinks',
+        'sandwiches',
+        'starters',
+        'mainCourses'
+    ));
+}
 
     public function store(Request $request)
     {
