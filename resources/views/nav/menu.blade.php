@@ -8,6 +8,65 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @include('items.header')
+
+    <style>
+        .menu-item {
+            border-radius: 15px;
+            transition: transform 0.3s;
+            height: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        .price {
+            color: #dc3545;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .price-discounted {
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        .offer-box {
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #dc3545;
+            color: white;
+            padding: 0.25rem 2rem;
+            transform: rotate(45deg);
+            font-size: 0.875rem;
+        }
+
+        .category-header {
+            border-left: 5px solid #dc3545;
+            padding-left: 1rem;
+            margin: 2rem 0;
+        }
+    </style>
 </head>
 
 <body class="mt-5">
@@ -19,9 +78,27 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="menu-item">
                         <img src="images/Classic Cheese Burger.png" alt="Classic Cheese Burger">
-                        <h5>Classic Cheese Burger</h5>
-                        <p>Juicy patty with cheese delight.</p>
-                        <span class="price-discounted">$8.99</span>
+                        <div class="menu-item-content">
+                            <h5 class="fw-bold mb-2">Classic Cheese Burger</h5>
+                            <p class="text-muted small mb-3">Juicy patty with melted cheese and fresh veggies</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$8.99</span>
+                                <button class="btn btn-danger btn-sm">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="menu-item">
+                        <img src="images/Classic Cheese Burger.png" alt="Classic Cheese Burger">
+                        <div class="menu-item-content">
+                            <h5 class="fw-bold mb-2">Classic Cheese Burger</h5>
+                            <p class="text-muted small mb-3">Juicy patty with melted cheese and fresh veggies</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$8.99</span>
+                                <button class="btn btn-danger btn-sm">Add to Cart</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -66,25 +143,14 @@
             <div class="col-md-4">
                 <div class="menu-item">
                     <img src="images/garlic-bread.jpg" alt="Garlic Bread">
-                    <h4>Garlic Bread</h4>
-                    <p>Crispy bread with garlic & herbs.</p>
-                    <span class="price">$4.99</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="menu-item">
-                    <img src="images/spring-rolls.jpg" alt="Spring Rolls">
-                    <h4>Spring Rolls</h4>
-                    <p>Stuffed with fresh vegetables and noodles.</p>
-                    <span class="price">$5.99</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="menu-item">
-                    <img src="images/spring-rolls.jpg" alt="Spring Rolls">
-                    <h4>Spring Rolls</h4>
-                    <p>Stuffed with fresh vegetables and noodles.</p>
-                    <span class="price">$5.99</span>
+                    <div class="menu-item-content">
+                        <h4 class="fw-bold">Garlic Bread</h4>
+                        <p class="text-muted">Crispy bread with garlic & herbs</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$4.99</span>
+                            <button class="btn btn-danger btn-sm">Add to Cart</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -271,34 +337,46 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="offer-box">
-                    <img src="images/family combo.png" alt="Family Combo">
-                    <h3>Family Combo</h3>
-                    <p>4 Burgers, 2 Fries, 4 Soft Drinks</p>
-                    <div>
-                        <span class="price-original">$32.99</span><br>
-                        <span class="price-discounted">$25.99</span> (21% OFF)
+                    <span class="offer-badge">25% OFF</span>
+                    <img src="images/family combo.png" class="w-100" alt="Family Combo">
+                    <div class="p-3">
+                        <h3>Family Combo</h3>
+                        <p class="text-muted">4 Burgers, 2 Fries, 4 Soft Drinks</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="price-discounted">$25.99</span>
+                            <del class="text-muted small">$32.99</del>
+                        </div>
+                        <button class="btn btn-warning w-100 mt-3">Claim Offer</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="offer-box">
-                    <img src="images/snack attack.png" alt="Snack Attack">
-                    <h3>Snack Attack</h3>
-                    <p>Fries, Nuggets & Cold Drink</p>
-                    <div>
-                        <span class="price-original">$10.99</span><br>
-                        <span class="price-discounted">$7.99</span> (27% OFF)
+                    <span class="offer-badge">27% OFF</span>
+                    <img src="images/snack attack.png" class="w-100" alt="Snack Attack">
+                    <div class="p-3">
+                        <h3>Snack Attack</h3>
+                        <p class="text-muted">Fries, Nuggets & Cold Drink</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="price-discounted">$10.99</span>
+                            <del class="text-muted small">$7.99</del>
+                        </div>
+                        <button class="btn btn-warning w-100 mt-3">Claim Offer</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="offer-box">
-                    <img src="images/bogo burger.png" alt="BOGO Burger">
-                    <h3>BOGO Burger</h3>
-                    <p>Buy 1 Get 1 Free - This Week Only</p>
-                    <div>
-                        <span class="price-original">$17.98</span><br>
-                        <span class="price-discounted">$9.99</span> (44% OFF)
+                    <span class="offer-badge">44% OFF</span>
+                    <img class="w-100" src="images/bogo burger.png" alt="BOGO Burger">
+                    <div class="p-3">
+                        <h3>BOGO Burger</h3>
+                        <p class="text-muted">Buy 1 Get 1 Free - This Week Only</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="price-discounted">$17.98</span>
+                            <del class="text-muted small">$9.99</del>
+                        </div>
+                        <button class="btn btn-warning w-100 mt-3">Claim Offer</button>
                     </div>
                 </div>
             </div>
