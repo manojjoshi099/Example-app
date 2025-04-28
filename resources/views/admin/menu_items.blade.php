@@ -375,10 +375,10 @@
                         @forelse($Desserts as $Dessert)
                             <tr>
                                 <td>{{ $Dessert->name }}</td>
-                                <td>{{$Desser->description}}</td>
+                                <td>{{$Dessert->description}}</td>
                                 <td>${{ number_format($Dessert->price, 2) }}</td>
                                 <td>
-                                    @if ($Drink->image)
+                                    @if ($Dessert->image)
                                         <img src="{{ asset('storage/' . $Dessert->image) }}" width="60"
                                             class="img-thumbnail">
                                     @else

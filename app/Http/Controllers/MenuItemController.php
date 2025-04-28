@@ -54,9 +54,9 @@ class MenuItemController extends Controller
             'menuItems' => MenuItem::all(),
             'pizzas' => MenuItem::where('type', 'Pizza')->get(),
             'burgers' => MenuItem::where('type', 'Burger')->get(),
-            'drinks' => MenuItem::where('type', 'Drink')->get(),
+            'Drinks' => MenuItem::where('type', 'Drink')->get(),
             'mainCourse'=> MenuItem::where('type','Main Course')->get(),
-            'Deserts'=> MenuItem::where('type','Desert')->get(),
+            'Desserts'=> MenuItem::where('type','Dessert')->get(),
             'starters' => MenuItem::where('type', 'Starter')->get(),
             'mainCourses' => MenuItem::where('type', 'Main Course')->get(),
             'desserts' => MenuItem::where('type', 'Dessert')->get()

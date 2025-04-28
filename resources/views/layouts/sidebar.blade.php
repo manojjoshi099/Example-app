@@ -97,10 +97,10 @@
             <a href="/users"><i class="fas fa-users"></i> Users</a>
             <a href="#"><i class="fas fa-cog"></i> Settings</a>
             {{-- <a href="{{route('admin/reservation')}}"><i class="fas fa-book-open"></i> Reservations</a> --}}
-            <a href="admin/reservation"><i class="fas fa-book-open"></i> Reservations</a>
+            <a href="{{route('admin.reservation.index')}}"><i class="fas fa-book-open"></i> Reservations</a>
         </div>
         <div class="sidebar-footer">
-            <a href="{{ route('admin.profile') }}">
+            <a href="{{ route(name: 'admin.profile') }}">
                 @auth('web') {{ Auth::user()->name }} @else Profile    @endauth
                 <i class="fas fa-user"></i><br>
             </a>

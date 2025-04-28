@@ -66,6 +66,25 @@
             padding-left: 1rem;
             margin: 2rem 0;
         }
+
+        .menu-item-img-container {
+            position: relative;
+            width: 100%;
+            padding-top: 75%;
+            aspect-ratio: 2:2;            
+            overflow: hidden;
+            border-radius: 15px 15px 0 0; 
+        } 
+
+        .menu-item-img {
+            position: absolute;
+            top: 0%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
     </style>
 </head>
 
@@ -338,7 +357,10 @@
             <div class="col-md-6 col-lg-4">
                 <div class="offer-box">
                     <span class="offer-badge">25% OFF</span>
-                    <img src="images/family combo.png" class="w-100" alt="Family Combo">
+                    <div class="menu-item-img-container">
+
+                        <img src="images/family combo.png" class="w-100" alt="Family Combo">
+                    </div>
                     <div class="p-3">
                         <h3>Family Combo</h3>
                         <p class="text-muted">4 Burgers, 2 Fries, 4 Soft Drinks</p>
@@ -353,7 +375,9 @@
             <div class="col-md-6 col-lg-4">
                 <div class="offer-box">
                     <span class="offer-badge">27% OFF</span>
-                    <img src="images/snack attack.png" class="w-100" alt="Snack Attack">
+                    <div class="menu-item-img-container">
+                        <img src="images/snack attack.png" class="w-100" alt="Snack Attack">
+                    </div>
                     <div class="p-3">
                         <h3>Snack Attack</h3>
                         <p class="text-muted">Fries, Nuggets & Cold Drink</p>
@@ -368,7 +392,9 @@
             <div class="col-md-6 col-lg-4">
                 <div class="offer-box">
                     <span class="offer-badge">44% OFF</span>
-                    <img class="w-100" src="images/bogo burger.png" alt="BOGO Burger">
+                    <div class="menu-item-img-container">
+                        <img class="w-100" src="images/bogo burger.png" alt="BOGO Burger">
+                    </div>
                     <div class="p-3">
                         <h3>BOGO Burger</h3>
                         <p class="text-muted">Buy 1 Get 1 Free - This Week Only</p>

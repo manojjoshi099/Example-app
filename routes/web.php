@@ -154,10 +154,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/menu_items', function () {
     });
 
-    Route::get("/reservation", function () {
-        // return "hello world";
-        return view('admin.reservation');
-    });
+    // Route::get("/reservation", function () {
+    //     // return "hello world";
+    //     // return view('admin.reservation');
+    // });
 
     // Route::get('/', [CategoryController::class, 'index'])->name('admin.index');
     // Route::get('/index', [CategoryController::class, 'index'])->name('admin.index');
@@ -183,7 +183,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Route::get('/reservation',[ReservationController::class, 'index'])->name('reservation.index');
 
 
-    // Route::get('/reservation',[ReservationController::class,'index'])->name('reservation.index');
+    Route::get('/reservation',[ReservationController::class,'index'])->name('reservation.index');
+
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
