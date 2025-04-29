@@ -313,7 +313,7 @@
             </div>
         </div>
         @endisset
-        
+
         @isset($Drinks)
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
@@ -397,6 +397,8 @@
             </div>
         </div>
         @endisset
+
+
 
     </div>
 @endsection

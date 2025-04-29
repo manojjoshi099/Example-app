@@ -12,9 +12,11 @@
                     <li class="nav-item"><a class="nav-link" href="reservation">Reservation</a></li>
                     <li class="nav-item"><a class="nav-link" href="offers">Offers</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-                    <li class="nav-item ms-3">
+                    <li class="nav-item ms-2">
                         <a href="#" class="btn btn-custom">Order Now</a>
                     </li>
+                    <li class="nav-item ms-3">
+                        <a href="#"></a><i class="bi bi-cart-plus-fill"></i>ADD</li>
                 </ul>
                 {{-- <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ url('login') }}">Login</a></li>
